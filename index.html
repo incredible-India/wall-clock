@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .maion
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .circle{
+            border-radius: 50%;
+            width: 500px;
+            height: 500px;
+            color: red;
+            box-shadow: 0 0 5px inset , 0 0 10px ,0 0 25px , 0 0 35px;
+           border: 2px dotted;
+          
+        }
+  
+        .sui{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 250px;
+    top: 35px;
+    width: 4px;
+    height: 200px;
+    border: 1px solid red;
+    box-shadow: 0 0 10px, 0 0 15px;
+    border-top-right-radius: 31px;
+    border-top-left-radius: 30px;
+    transform-origin: center; 
+    color: red;
+    z-index: 1;
+    /* transition: 1s; */
+
+/* transform-origin: top left; */
+
+/* transform-origin: 50px 50px;  */
+
+transform-origin: bottom;
+
+
+        }
+
+        .hour{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 250px;
+    top: -170px;
+    width: 4px;
+    height: 200px;
+    border: 1px solid cyan;
+    box-shadow: 0 0 10px, 0 0 15px;
+    border-top-right-radius: 31px;
+    border-top-left-radius: 30px;
+    transform-origin: center; 
+    color: cyan;
+    /* transition: 1s; */
+
+/* transform-origin: top left; */
+
+/* transform-origin: 50px 50px;  */
+
+transform-origin: top;
+
+
+        }
+
+        .minute{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 250px;
+    top: 31px;
+    width: 4px;
+    height: 200px;
+    border: 1px solid blue;
+    box-shadow: 0 0 10px, 0 0 15px;
+    border-top-right-radius: 31px;
+    border-top-left-radius: 30px;
+    transform-origin: center; 
+    /* transition: 1s; */
+
+/* transform-origin: top left; */
+
+/* transform-origin: 50px 50px;  */
+
+transform-origin: top;
+        }
+
+        .name{
+            margin-top: 40px;
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 900;
+            text-shadow: 0 0 5px , 0 0 15px ;
+            letter-spacing: 5px;
+            transition: 0.5s;
+     
+           
+        }
+
+        .name:hover{
+      
+   
+            text-transform: uppercase;
+        }
+
+     
+    </style>
+</head>
+<body>
+  <div class="maion">
+    <div class="circle">
+   
+        <div class="sui">
+
+        </div>
+        <div class="minute">
+
+        </div>
+        <div class="hour">
+
+        </div>
+    </div>
+    <div class="name">Himanshu</div>
+  </div>
+
+  <div>
+      <h3 style="color: cyan;">Hour</h3>
+      <h3 style="color:blue;">Minute</h3>
+  </div>
+
+</body>
+<script>
+
+    let date = new Date();
+    let houre = date.getHours()-12;
+    document.getElementsByClassName('sui')[0].style.transform =  `rotate(${180+(date.getSeconds()*6)}deg)`
+    document.getElementsByClassName('minute')[0].style.transform =  `rotate(${180+(date.getMinutes()*6)}deg)`
+    document.getElementsByClassName('hour')[0].style.transform =  `rotate(${180+(houre*30)}deg)`
+
+    var i=0;
+    var j=0;
+    var k=0;
+    var g=0;
+
+    setInterval(() => {
+        document.getElementsByClassName('sui')[0].style.transform =  `rotate(${i*6}deg)`
+        document.getElementsByClassName('circle')[0].style.color=  `rgb(${i},${150},${255})`
+        // document.getElementsByClassName('circle')[0].style.transform =  `rotateZ(${i+10}deg)`
+       
+        i++;
+        if(i==360)
+        {
+            i=0;
+        }
+
+      
+            document.getElementsByClassName('name')[0].style.color =`rgb(${i},${150},${255})`
+   
+    }, 1000);
+    setInterval(() => {
+        document.getElementsByClassName('minute')[0].style.transform =  `rotate(${180+(j)}deg)`
+        document.getElementsByClassName('circle')[0].style.color=  `rgb(${j},${150},${255})`
+        j += 6;
+        if(j==360)
+        {
+            j=0;
+        }
+
+      
+   
+    }, 60000);
+
+    setInterval(() => {
+        
+        document.getElementsByClassName('hour')[0].style.transform =  `rotate(${180+(k)}deg)`
+        document.getElementsByClassName('circle')[0].style.color=  `rgb(${k},${150},${255})`
+        k+=30;
+        if(k==360)
+        {
+            k=0;
+        }
+
+      
+   
+    },3600000 );
+
+    setInterval(() => {
+        document.getElementsByClassName('name')[0].style.letterSpacing = `${g}px`
+        g++;
+        if(g == 90)
+        {
+            g=0;
+        }
+    }, 100);
+</script>
+</html>
