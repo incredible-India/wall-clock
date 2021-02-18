@@ -1,2 +1,3 @@
 # wall-clock
-javascript
+Updated all the functions
+
